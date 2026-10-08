@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1A1A1A">
+<meta name="description" content="Hayzed Entertainment TV - entertainment, publicity and advertising. Discover brands, businesses and trending content.">
+<title>Hayzed Entertainment TV | Entertainment & Advertising</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&family=Montserrat:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --camel:#D4B28C;
+  --camel-soft:#E8D4BC;
+  --noir:#1A1A1A;
+  --black:#090909;
+  --white:#F7F3ED;
+  --muted:#B7AEA4;
+  --line:rgba(212,178,140,.22);
+  --glass:rgba(255,255,255,.055);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:Montserrat,Helvetica,Arial,sans-serif;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:20;
+  opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+}
+
+/* NAV */
+.nav{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  z-index:10;
+  height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px clamp(20px,5vw,72px);
+}
+.nav-brand{
+  font-family:"Bodoni Moda",serif;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-size:12px;
+  color:var(--camel-soft);
+}
+.nav-logo{
+  width:86px;
+  height:86px;
+  object-fit:contain;
+  filter:drop-shadow(0 8px 24px rgba(0,0,0,.45));
+}
+
+/* HERO */
+.hero{
+  min-height:100svh;
+  position:relative;
+  isolation:isolate;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(8,8,8,.92) 0%,rgba(8,8,8,.68) 44%,rgba(8,8,8,.22) 100%),
+    linear-gradient(0deg,rgba(9,9,9,.98) 0%,rgba(9,9,9,.08) 55%,rgba(9,9,9,.38) 100%),
+    url("assets/hero_background.webp") center/cover no-repeat;
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:42%;
+  z-index:-1;
+  background:linear-gradient(0deg,#090909,transparent);
+}
+.hero-inner{
+  width:min(1180px,100%);
+  margin:0 auto;
+  padding:0 clamp(22px,6vw,84px) clamp(58px,9vw,110px);
+}
+.eyebrow{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--camel);
+  font-family:"Bodoni Moda",serif;
+  font-size:11px;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+.eyebrow:before{
+  content:"";
+  width:42px;
+  height:1px;
+  background:var(--camel);
+}
+.hero h1{
+  max-width:760px;
+  font-family:"Bodoni Moda",serif;
+  font-size:clamp(50px,10vw,118px);
+  line-height:.86;
+  font-weight:500;
+  letter-spacing:-.055em;
+}
+.hero h1 em{
+  display:block;
+  color:var(--camel);
+  font-family:Pacifico,"Brush Script MT",cursive;
+  font-size:1.04em;
+  line-height:.85;
+  font-style:normal;
+  letter-spacing:-.025em;
+  transform:rotate(-3deg);
+  transform-origin:left center;
+  margin:8px 0 4px 4px;
+}
+.hero-sub{
+  max-width:570px;
+  margin-top:30px;
+  color:#D7D0C8;
+  font-size:13px;
+  line-height:1.9;
+  letter-spacing:.04em;
+}
+.hero-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+.btn{
+  min-height:52px;
+  padding:0 22px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--camel);
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-size:10px;
+  font-weight:700;
+  transition:.25s ease;
+}
+.btn-primary{
+  color:#15110d;
+  background:var(--camel);
+}
+.btn-primary:hover{background:var(--camel-soft);transform:translateY(-2px)}
+.btn-ghost{
+  background:rgba(0,0,0,.18);
+  backdrop-filter:blur(10px);
+  color:var(--white);
+  border-color:rgba(255,255,255,.3);
+}
+.btn-ghost:hover{border-color:var(--camel);color:var(--camel)}
+
+.hero-side{
+  position:absolute;
+  right:clamp(20px,6vw,84px);
+  bottom:clamp(55px,9vw,105px);
+  width:180px;
+  padding:18px;
+  border-left:1px solid var(--camel);
+  background:rgba(0,0,0,.22);
+  backdrop-filter:blur(10px);
+}
+.hero-side strong{
+  display:block;
+  font-family:"Bodoni Moda",serif;
+  font-size:25px;
+  color:var(--camel);
+  font-weight:500;
+}
+.hero-side span{
+  display:block;
+  margin-top:5px;
+  color:#c7c0b8;
+  font-size:9px;
+  letter-spacing:.18em;
+  line-height:1.6;
+  text-transform:uppercase;
+}
+
+/* GENERAL */
+.section{
+  width:min(1180px,100%);
+  margin:0 auto;
+  padding:110px clamp(22px,6vw,84px);
+}
+.kicker{
+  color:var(--camel);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  margin-bottom:17px;
+}
+.section-title{
+  max-width:760px;
+  font-family:"Bodoni Moda",serif;
+  font-size:clamp(35px,6vw,66px);
+  line-height:1;
+  font-weight:500;
+  letter-spacing:-.04em;
+}
+.section-title span{color:var(--camel)}
+.section-copy{
+  max-width:620px;
+  color:#AAA29A;
+  line-height:1.9;
+  font-size:13px;
+  margin-top:24px;
+}
+
+/* VALUE */
+.value{
+  background:
+    radial-gradient(circle at 75% 20%,rgba(212,178,140,.10),transparent 27%),
+    var(--black);
+}
+.value-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:60px;
+  align-items:end;
+}
+.signature{
+  margin-top:42px;
+  font-family:Pacifico,cursive;
+  font-size:31px;
+  color:var(--camel);
+  transform:rotate(-4deg);
+  display:inline-block;
+}
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--line);
+  border-left:1px solid var(--line);
+}
+.stat{
+  min-height:155px;
+  padding:26px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.stat b{
+  display:block;
+  font-family:"Bodoni Moda",serif;
+  color:var(--camel);
+  font-size:40px;
+  font-weight:500;
+}
+.stat span{
+  display:block;
+  margin-top:8px;
+  color:#A69E96;
+  font-size:9px;
+  line-height:1.6;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+/* ADVERTISING */
+.ads{
+  background:var(--noir);
+  position:relative;
+  overflow:hidden;
+}
+.ads:before{
+  content:"ADVERTISE";
+  position:absolute;
+  top:10px;
+  right:-30px;
+  font-family:"Bodoni Moda",serif;
+  font-size:clamp(70px,15vw,180px);
+  color:rgba(255,255,255,.018);
+  white-space:nowrap;
+  pointer-events:none;
+}
+.ad-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:48px;
+}
+.ad-card{
+  min-height:260px;
+  position:relative;
+  overflow:hidden;
+  background:#111;
+  border:1px solid rgba(212,178,140,.16);
+}
+.ad-card img{
+  width:100%;
+  height:100%;
+  min-height:260px;
+  display:block;
+  object-fit:cover;
+  transition:transform .6s ease;
+}
+.ad-card:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(0deg,rgba(0,0,0,.9),transparent 65%);
+}
+.ad-card:hover img{transform:scale(1.045)}
+.ad-label{
+  position:absolute;
+  left:20px;
+  bottom:18px;
+  z-index:2;
+  color:#fff;
+  font-family:"Bodoni Moda",serif;
+  font-size:19px;
+}
+.ad-label small{
+  display:block;
+  margin-bottom:4px;
+  color:var(--camel);
+  font-family:Montserrat,sans-serif;
+  font-size:8px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+}
+.ad-note{
+  margin-top:25px;
+  color:#8f8881;
+  font-size:10px;
+  letter-spacing:.08em;
+}
+
+/* POSITIONING / SERVICES */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  margin-top:50px;
+  background:var(--line);
+}
+.service{
+  min-height:250px;
+  padding:34px 28px;
+  background:var(--black);
+}
+.service-num{
+  color:var(--camel);
+  font-family:"Bodoni Moda",serif;
+  font-size:13px;
+}
+.service h3{
+  margin-top:55px;
+  font-family:"Bodoni Moda",serif;
+  font-size:25px;
+  font-weight:500;
+}
+.service p{
+  margin-top:13px;
+  color:#8f8983;
+  font-size:11px;
+  line-height:1.8;
+}
+
+/* CTA */
+.cta{
+  min-height:580px;
+  position:relative;
+  isolation:isolate;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(9,9,9,.96),rgba(9,9,9,.55)),
+    url("assets/cta_background.webp") center/cover no-repeat;
+}
+.cta-inner{
+  width:min(1180px,100%);
+  margin:auto;
+  padding:90px clamp(22px,6vw,84px);
+}
+.cta h2{
+  max-width:760px;
+  font-family:"Bodoni Moda",serif;
+  font-weight:500;
+  font-size:clamp(42px,7vw,84px);
+  line-height:.95;
+  letter-spacing:-.045em;
+}
+.cta h2 span{
+  color:var(--camel);
+  font-family:Pacifico,cursive;
+  font-size:1.02em;
+  font-weight:400;
+}
+.cta p{
+  max-width:530px;
+  margin-top:25px;
+  color:#C1BAB2;
+  font-size:13px;
+  line-height:1.9;
+}
+.cta .hero-actions{margin-top:30px}
+
+/* FOOTER */
+footer{
+  padding:35px clamp(22px,6vw,84px);
+  border-top:1px solid var(--line);
+  background:#070707;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:center;
+}
+.footer-brand{
+  font-family:"Bodoni Moda",serif;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-size:10px;
+}
+footer p{
+  color:#706A64;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+/* RESPONSIVE */
+@media(max-width:820px){
+  .nav{height:76px}
+  .nav-brand{font-size:9px}
+  .nav-logo{width:70px;height:70px}
+  .hero{
+    min-height:92svh;
+    background:
+      linear-gradient(90deg,rgba(8,8,8,.93),rgba(8,8,8,.46)),
+      linear-gradient(0deg,#090909 0%,transparent 65%),
+      url("assets/hero_background.webp") 62% center/cover no-repeat;
+  }
+  .hero-inner{padding-bottom:50px}
+  .hero-side{display:none}
+  .value-grid{grid-template-columns:1fr;gap:45px}
+  .ad-grid{grid-template-columns:1fr 1fr}
+  .services-grid{grid-template-columns:1fr}
+  .service{min-height:210px}
+}
+@media(max-width:520px){
+  .hero h1{font-size:clamp(47px,15vw,75px)}
+  .hero-sub{font-size:11px;line-height:1.8}
+  .hero-actions{display:grid;grid-template-columns:1fr}
+  .btn{width:100%}
+  .section{padding-top:82px;padding-bottom:82px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat{min-height:125px;padding:20px}
+  .stat b{font-size:31px}
+  .ad-grid{grid-template-columns:1fr}
+  .ad-card,.ad-card img{min-height:340px}
+  footer{display:block}
+  footer p{margin-top:12px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="nav">
+  <div class="nav-brand">Hayzed Entertainment TV</div>
+  <img class="nav-logo" src="assets/logo.webp" alt="Hayzed Entertainment TV logo">
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="eyebrow">Entertainment • Publicity • Advertising</div>
+    <h1>
+      Your audience.
+      <em>Your stage.</em>
+    </h1>
+    <p class="hero-sub">
+      Hayzed Entertainment TV connects entertainment, publicity and brands through a growing digital audience. Discover what is trending, discover businesses worth knowing, and put your brand where people are already looking.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://wa.me/2348081824031" target="_blank" rel="noopener">Join Hayzed TV</a>
+      <a class="btn btn-ghost" href="#advertise">Advertise With Us</a>
+    </div>
+  </div>
+
+  <div class="hero-side">
+    <strong>24/7</strong>
+    <span>Entertainment & publicity platform</span>
+  </div>
+</section>
+
+<section class="section value">
+  <div class="value-grid">
+    <div>
+      <div class="kicker">More than a WhatsApp TV</div>
+      <h2 class="section-title">Turn attention into <span>visibility.</span></h2>
+      <p class="section-copy">
+        A dedicated website gives Hayzed Entertainment TV a permanent digital home outside WhatsApp. It makes the brand easier to discover, easier to trust and easier for businesses to take seriously when they are looking for publicity.
+      </p>
+      <p class="section-copy">
+        Instead of only being a contact saved in someone's phone, Hayzed becomes a recognizable media brand with a public presence that can be shared, searched and promoted.
+      </p>
+      <div class="signature">Hayzed TV</div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <b>01</b>
+        <span>Digital brand presence</span>
+      </div>
+      <div class="stat">
+        <b>02</b>
+        <span>Audience discovery</span>
+      </div>
+      <div class="stat">
+        <b>03</b>
+        <span>Advertiser credibility</span>
+      </div>
+      <div class="stat">
+        <b>04</b>
+        <span>Growth-ready platform</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section ads" id="advertise">
+  <div class="kicker">The advertising side</div>
+  <h2 class="section-title">Give businesses a <span>place to be seen.</span></h2>
+  <p class="section-copy">
+    Advertising is already a major part of Hayzed's platform. The website turns that activity into something businesses can see and understand before they decide to advertise.
+  </p>
+
+  <div class="ad-grid">
+    <article class="ad-card">
+      <img src="assets/burger_ads.jpg" alt="Burger advertisement">
+      <div class="ad-label"><small>Featured Ad</small>Food & Business</div>
+    </article>
+    <article class="ad-card">
+      <img src="assets/headphone_ad.jpg" alt="Headphone advertisement">
+      <div class="ad-label"><small>Featured Ad</small>Product Promotion</div>
+    </article>
+    <article class="ad-card">
+      <img src="assets/shoe_for_blackfriday_ad.jpg" alt="Black Friday shoe advertisement">
+      <div class="ad-label"><small>Featured Ad</small>Campaign Promotion</div>
+    </article>
+  </div>
+
+  <p class="ad-note">Examples shown for presentation. Replace these assets with current client campaigns.</p>
+</section>
+
+<section class="section">
+  <div class="kicker">Built for growth</div>
+  <h2 class="section-title">A stronger identity creates a <span>stronger platform.</span></h2>
+  <p class="section-copy">
+    The website is the foundation. Social media, WhatsApp distribution and paid promotion can then push people back into the Hayzed ecosystem.
+  </p>
+
+  <div class="services-grid">
+    <article class="service">
+      <div class="service-num">01 /</div>
+      <h3>Entertainment</h3>
+      <p>Keep the audience coming back for trends, stories, updates and content worth sharing.</p>
+    </article>
+    <article class="service">
+      <div class="service-num">02 /</div>
+      <h3>Publicity</h3>
+      <p>Give brands, events and businesses a professional place to be featured and discovered.</p>
+    </article>
+    <article class="service">
+      <div class="service-num">03 /</div>
+      <h3>Audience Growth</h3>
+      <p>Use social distribution and Meta advertising to expand reach beyond the existing WhatsApp audience.</p>
+    </article>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-inner">
+    <div class="kicker">Ready for more reach?</div>
+    <h2>Put your brand in front of <span>attention.</span></h2>
+    <p>
+      Whether you are promoting a product, business, event or campaign, Hayzed Entertainment TV gives you another channel for visibility.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://wa.me/2348081824031?text=Hello%20Hayzed%20Entertainment%20TV%2C%20I%20want%20to%20advertise." target="_blank" rel="noopener">Book An Advertisement</a>
+      <a class="btn btn-ghost" href="https://wa.me/2348081824031" target="_blank" rel="noopener">Contact Hayzed</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-brand">Hayzed Entertainment TV</div>
+  <p>Entertainment • Publicity • Advertising</p>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(link=>{
+  link.addEventListener('click',e=>{
+    const target=document.querySelector(link.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth'});
+    }
+  });
+});
+</script>
+
+</body>
+</html>
